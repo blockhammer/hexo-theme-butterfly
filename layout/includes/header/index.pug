@@ -3,19 +3,3 @@
 
 header#page-header(class = isHomeClass style = bg_img)
   != partial('includes/header/nav', {}, {cache:theme.fragment_cache})
-  if top_img !== false
-    if is_post()
-      include ./post-info.pug
-    else if is_home() 
-      #site-info
-        h1#site_title = site_title
-        #site_subtitle
-          span#subtitle
-        if(theme.social)
-          #site_social_icons
-            != fragment_cache('social', function(){return partial('includes/header/social')})
-      #scroll_down
-        i.fas.fa-angle-down.scroll-down-effects
-    else
-      #page_site-info
-        h1#site_title = site_title
